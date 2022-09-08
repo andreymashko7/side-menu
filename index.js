@@ -16,16 +16,14 @@ function createCardsMarcup(cards) {
         .join("")
 }
 
-const cardsMarcup = createCardsMarcup(cards)
-rootElement.innerHTML = cardsMarcup
+rootElement.innerHTML = createCardsMarcup(cards)
 const cardRefs = document.querySelectorAll(".card__item")
-
 sideBarContainer.addEventListener("click", onsideBarElementClick)
 
 function onsideBarElementClick({ target }) {
     links.forEach((link) => link.classList.remove("active"))
     target.classList.add("active")
-    let currentActivetLink = target.dataset.id
+    const currentActivetLink = target.dataset.id
 
     cardRefs.forEach((card) => {
         if (card.classList.contains("visible")) {
